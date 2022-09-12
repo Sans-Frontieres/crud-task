@@ -1,0 +1,17 @@
+--------------- Configuración del motor de plantillas ----------------
+
+
+// le damos acceso a la carpeta views 
+this.app.set('views', path.join(__dirname, 'views'))
+
+// Configuración del motor de vistas
+this.app.engine(
+    '.hbs',   // nombre del motor
+    create({
+        layoutsDir: path.resolve(this.app.get('views'), 'layouts'),  // layouts de app
+        partialsDir: path.resolve(this.app.get('views'), 'partials'), // html partials
+        defaultLayout: 'main',  // main de las vistas
+        extname: '.hbs'   // extenciones de archivo
+    }).engine
+)
+this.app.set('views engine', '.hbs')

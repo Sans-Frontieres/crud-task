@@ -1,0 +1,8 @@
+.jumbotron {
+    background: rgb(105, 188, 255);
+    padding: 50px;
+    margin: 10px;
+    color: white;
+    box-shadow: 8px 5px 5px rgba(57, 55, 55, 0.3);
+    border-radius: 5px 8px 8px;
+}

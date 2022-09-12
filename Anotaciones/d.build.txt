@@ -1,0 +1,6 @@
+--------------- Build de la app -------------
+
+Al compilar el codigo nos encontramos con que faltan la carpeta 
+public y la carpeta views
+
+Para esto usamos el modulo npc para copiar ambas carpetas.

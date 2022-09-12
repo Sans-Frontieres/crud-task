@@ -1,0 +1,6 @@
+----------------- Primera conexion a la base de datos ------------
+
+Para realizar el proceso de conexion a la BD debemos tener previamente instalado 
+y ejecutando mongoDb
+https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
+_

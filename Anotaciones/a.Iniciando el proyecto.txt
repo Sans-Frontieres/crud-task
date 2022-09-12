@@ -1,0 +1,20 @@
+----------- Primeras instalaciones -------------
+
+yarn add -D typescript
+
+Creamos la estructura principal del proyecto.
+El archivo de configuración de TS npx tsc --init
+En el dejamos todo por defecto excepto la directiva:
+    - outDir    ---- este será el directorio de salida
+    - rootDir   ---- este será el directorio root
+
+
+Vamos a instalar express mongoose express-handlebars morgan rimraf
+tambien yarn add -D @types/express
+
+Bien ahora podemos crear nuestra clase Application a partir de express importarla en index.ts
+
+Buildiamos el código con npx tsc 
+y luego lo corremos con node dist/index.js
+
+
