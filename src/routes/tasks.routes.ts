@@ -1,71 +1,22 @@
-import { Request, Response, Router } from 'express'
-import Task from '../models/Task'
+import { Router } from 'express'
+import * as controller from '../controllers/tasks.controllers'
+
+
 const router = Router()
 
-router.get("/create", (req: Request, res: Response) => {
-    res.render('tasks/task')
-});
+router.get("/new", controller.newtask);
 
-router.post('/create', async (req: Request, res: Response) => {
-    const { title, description } = req.body
+router.post('/create', controller.create)
 
-    const newTask = new Task({ title, description })
+router.get("/list", controller.tasks);
 
-    await newTask.save()
+router.get("/delete/:id", controller.remove)
 
-    res.redirect('/tasks/list')
-})
+router.get("/edit/:id", controller.edit)
 
-router.get("/list", async (req: Request, res: Response) => {
-    const tasks = await Task.find().lean();
+router.post("/update/:id", controller.update)
 
-    res.render("tasks/list", { tasks });
-});
-
-
-router.get("/delete/:id", async (req: Request, res: Response) => {
-    const { id } = req.params
-
-    await Task.findByIdAndDelete(id)
-
-    res.redirect('/tasks/list')
-
-})
-
-
-router.get("/edit/:id", async (req: Request, res: Response) => {
-    const { id } = req.params
-    const task = await Task.findById(id).lean();
-
-    console.log('Taks ', task);
-
-
-    res.render('tasks/task', { task })
-})
-
-router.post("/update/:id", async (req: Request, res: Response) => {
-    const { id } = req.params
-    const { title, description } = req.body
-
-    await Task.findByIdAndUpdate(id, { title, description })
-
-    res.redirect('/tasks/list')
-})
-
-router.post("/search", async (req: Request, res: Response) => {
-    const { title } = req.body
-
-    const task = await Task.findOne({ title }).lean();
-
-    console.log('Task ', task);
-
-
-    res.render('tasks/show', { task })
-})
-
-
-
-
+router.post("/search", controller.show)
 
 
 export default router
