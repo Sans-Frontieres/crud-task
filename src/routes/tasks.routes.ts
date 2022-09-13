@@ -3,7 +3,7 @@ import Task from '../models/Task'
 const router = Router()
 
 router.get("/create", (req: Request, res: Response) => {
-    res.render('tasks/create')
+    res.render('tasks/task')
 });
 
 router.post('/create', async (req: Request, res: Response) => {
@@ -40,7 +40,7 @@ router.get("/edit/:id", async (req: Request, res: Response) => {
     console.log('Taks ', task);
 
 
-    res.render('tasks/edit', { task })
+    res.render('tasks/task', { task })
 })
 
 router.post("/update/:id", async (req: Request, res: Response) => {
